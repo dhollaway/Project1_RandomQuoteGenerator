@@ -24,6 +24,7 @@ body {
   line-height: 2.5rem;
   position: absolute;
 }
+
 .quote:before {
   content: "“";
   top: .25em;
