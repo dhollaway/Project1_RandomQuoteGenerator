@@ -6,6 +6,7 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 //1) Create an array of JavaScript objects to hold the data for your quotes. Name array quotes. The quotes array should be accessible in the global scope.
 //Helpful videos: https://teamtreehouse.com/library/javascript-loops-arrays-and-objects/tracking-data-using-objects/mixing-and-matching-arrays-and-objects
 //................https://teamtreehouse.com/library/javascript-basics/creating-reusable-code-with-functions/getting-information-from-a-function
+//................https://teamtreehouse.com/library/javascript-loops-arrays-and-objects/tracking-data-using-objects/the-build-an-object-challenge-part-2-solution
 
 //contains the list of quotes.
 var quotes =[
@@ -35,50 +36,41 @@ var quotes =[
 	 
 	 {quote :"I can't believe you like money too. We should hang out.",
 	 source:"Frito",
-	 citation: "3rd the Movie Idiocracy",
+	 citation: "3rd from the Movie Idiocracy",
 	 year: "2006"
 	 }
 	 
 ];
 
 // Makes the random number according to the length of the array.
-var makeRandomNumber = Math.round(Math.random() * quotes.length);
+var makeRandomNumber = Math.round(Math.random() * quotes.length-1);
+//var storeRandomQuote = getRandomQuote();
 
 //2) Create a function named getRandomQuote which, a) selects a random quote object from the quotes array, 2) returns the randomly selected quote object
 function getRandomQuote(){
 	
-	var showQuote =	quotes[makeRandomNumber].quote;
-	var showSource = quotes[makeRandomNumber].source;
-	var showCitation = quotes[makeRandomNumber].citation;
-	var showYear = quotes[makeRandomNumber].year;
+	//loops through the quote.
+	for (var i = 0; i< quotes.length; i+=1)
+	{
+		var showQuote =	quotes[makeRandomNumber].quote;
+		var showSource = quotes[makeRandomNumber].source;
+		var showCitation = quotes[makeRandomNumber].citation;
+		var showYear = quotes[makeRandomNumber].year;
 
-	document.getElementsByClassName("quote")[0].innerHTML = showQuote;
-	document.getElementsByClassName("source")[0].innerHTML = showSource;
-	//problem starts with the two lines (59, 60) below. Gets an uncaught TypeError scrip.js:57
-	//"Cannot read property of 0 or null"
-	document.getElementsByClassName("citation")[0].innerHTML = showCitation;
-	document.getElementsByClassName("year")[0].innerHTML = showYear;
-
-	console.log(showQuote);
-	console.log(showSource);
-	console.log(showCitation);
-	console.log(showYear);
-	//return showQuoteNow;
+		document.getElementById("quote-box").innerHTML = '<p class="quote">' + showQuote + '</p> <p class="source">' + showSource + '<span class="citation">' + showCitation + '</span> <span class="year">' + showYear + '</span> </p>'; 
+	}	
 }
+
 
 
 // 3) Create a function named printQuote
 function printQuote (){
 	
-	getRandomQuote();
+	getRandomQuote();	
 	
 }
 
-//loops through the quote.
-/*for (var i = 0; i< quotes.length; i+=1)
-{
-//console.log(quotes[i].quote);
-}*/	
+
 
 
 
