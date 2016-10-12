@@ -50,13 +50,25 @@ body {
   font-style: italic;
 }
 .citation:before {
-  content: ", ";
+  content: ",";
   font-style: normal;
 }
 .year:before {
   content: ", ";
   font-style: normal;
 }
+
+.year:after {
+  content: ", ";
+  font-style: normal;
+}
+
+.category:after{
+  font-style: normal';
+  font-size: 1 rem;
+ 
+}
+
 
 #loadQuote {
   position: fixed;
