@@ -47,16 +47,17 @@ var quotes =[
 	 
 ];
 
-// Makes the random number according to the length of the array.
-var makeRandomNumber = Math.round(Math.random() * quotes.length-1);
-
 //2) Create a function named getRandomQuote which, a) selects a random quote object from the quotes array, b) returns the randomly selected quote object
 function getRandomQuote(){
 	
 	//loops through the quote.
-	for (var i = 0; i< quotes.length; i)
-	{
-		//Sotres the quote, source, citation, and year in a variable.
+	//for (var i = 0; i< quotes.length; i-1)
+	//{
+		// Makes the random number according to the length of the array.
+		var makeRandomNumber = Math.floor(Math.random() * quotes.length);
+
+
+		//Sorts the quote, source, citation, and year in a variable.
 		var showQuote =	quotes[makeRandomNumber].quote;
 		var showSource = quotes[makeRandomNumber].source;
 		var showCitation = quotes[makeRandomNumber].citation;
@@ -68,13 +69,17 @@ function getRandomQuote(){
 		
 
 		//changes the color of the page
-		var pageColor = ["red", "orange", "blue", "purple","grey","black"];
-		document.body.style.backgroundColor = pageColor[Math.floor(Math.random()*pageColor.length)-1];	
-		//console.log(quotes[makeRandomNumber].quote);
-		console.log(quotes.length);
-		return storedQuote;
-	};
+		var pageColor = ["red", "orange", "blue", "purple","grey","black", "green","black"];
+		document.body.style.backgroundColor = pageColor[Math.floor(Math.random()*pageColor.length)-1];
+		
+		//Disables button so user can continuously click and start the process over again.
+		//document.getElementById("loadQuote").disabled = true;
 
+		console.log(quotes.length);
+		
+		return storedQuote;
+	//};
+	//What's left? 1) showing a qoute every so often, i.e. every 10 seconds 2) Not showing the same qoute until all of the qutoes have been shown.
 
 }
 
@@ -84,8 +89,8 @@ function getRandomQuote(){
 function printQuote (){
 	
 	getRandomQuote();
-	//Creates a new quote
-	//setInterval(getRandomQuote, 5000);	
+	//Creates a new quote every five seconds but is disabled after user
+	setInterval(getRandomQuote, 5000);	
 }
 
 
