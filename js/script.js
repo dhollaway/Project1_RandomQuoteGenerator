@@ -73,13 +73,12 @@ function getRandomQuote(){
 		document.body.style.backgroundColor = pageColor[Math.floor(Math.random()*pageColor.length)-1];
 		
 		//Disables button so user can continuously click and start the process over again.
-		//document.getElementById("loadQuote").disabled = true;
+		document.getElementById("loadQuote").disabled = true;
 
 		console.log(quotes.length);
 		
 		return storedQuote;
 	//};
-	//What's left? 1) showing a qoute every so often, i.e. every 10 seconds 2) Not showing the same qoute until all of the qutoes have been shown.
 
 }
 
@@ -89,6 +88,7 @@ function getRandomQuote(){
 function printQuote (){
 	
 	getRandomQuote();
+	
 	//Creates a new quote every five seconds but is disabled after user
 	setInterval(getRandomQuote, 5000);	
 }
